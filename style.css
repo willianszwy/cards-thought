@@ -1,0 +1,342 @@
+:root {
+  --bg-primary: #000000;
+  --card-color: #242121;
+  --accent-color: #d5b56e;
+  --accent-rgba: rgba(213, 181, 110, 0.3);
+  --accent-rgba-light: rgba(213, 181, 110, 0.1);
+  --accent-rgba-bright: rgba(213, 181, 110, 0.8);
+  --text-primary: #d5b56e;
+  --glass-bg: rgba(36, 33, 33, 0.3);
+  --glass-border: rgba(213, 181, 110, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Bad Script', cursive;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.app-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px var(--accent-rgba);
+}
+
+.app-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.oracle-card {
+  width: 300px;
+  height: 450px;
+  position: relative;
+  perspective: 1000px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.oracle-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.oracle-card.flip .card-inner {
+  transform: rotateY(0deg);
+}
+
+.oracle-card.flip-active .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 2px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(213, 181, 110, 0.1),
+    inset 0 1px 0 rgba(213, 181, 110, 0.1);
+}
+
+.card-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.corner-decoration {
+  position: absolute;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-rgba);
+}
+
+.top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.card-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.consult-btn {
+  background: var(--accent-rgba);
+  border: 2px solid var(--accent-color);
+  border-radius: 25px;
+  color: var(--text-primary);
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(213, 181, 110, 0.2);
+}
+
+.consult-btn:hover {
+  background: var(--accent-rgba-bright);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(213, 181, 110, 0.4);
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+.consult-btn:active {
+  transform: translateY(0) scale(1.02);
+}
+
+.message-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease;
+}
+
+.message-content.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.message-content.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.message-content.message-appear {
+  animation: messageAppear 0.8s ease-out;
+}
+
+@keyframes messageAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.oracle-message {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  text-shadow: 0 0 15px rgba(213, 181, 110, 0.3);
+}
+
+.oracle-author {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.shuffle-btn {
+  background: var(--accent-rgba);
+  border: 2px solid var(--accent-color);
+  border-radius: 25px;
+  color: var(--text-primary);
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 12px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(213, 181, 110, 0.2);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.shuffle-btn.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.shuffle-btn:hover {
+  background: var(--accent-rgba-bright);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(213, 181, 110, 0.4);
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+.shuffle-btn:active {
+  transform: translateY(0) scale(1.02);
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .app-title {
+    font-size: 2rem;
+  }
+
+  .oracle-card {
+    width: 280px;
+    height: 400px;
+  }
+
+  .card-content {
+    padding: 25px;
+  }
+
+  .oracle-message {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+  }
+
+  .oracle-author {
+    font-size: 0.85rem;
+  }
+
+  .consult-btn,
+  .shuffle-btn {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+}

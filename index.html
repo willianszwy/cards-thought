@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inner Thought - Cartas de Oráculo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles-bg" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="app-title">Inner Thought</h1>
+            <p class="app-subtitle">It brings to light what your soul already knows</p>
+        </header>
+
+        <main class="card-container">
+            <div class="oracle-card" id="oracleCard">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-decorations">
+                            <span class="corner-decoration top-left">❋</span>
+                            <span class="corner-decoration top-right">❋</span>
+                            <span class="corner-decoration bottom-left">❋</span>
+                            <span class="corner-decoration bottom-right">❋</span>
+                        </div>
+                        
+                        <div class="card-content">
+                            <button class="consult-btn" id="consultBtn">
+                                Consulte sua mensagem
+                            </button>
+                            
+                            <div class="message-content hidden" id="messageContent">
+                                <p class="oracle-message" id="oracleMessage"></p>
+                                <p class="oracle-author" id="oracleAuthor"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="shuffle-btn hidden" id="shuffleBtn">
+                Sortear Novamente
+            </button>
+        </main>
+    </div>
+
+    <script src="messages.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
