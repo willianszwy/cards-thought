@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cards-thought/static/css/main.78d86247.css",
+    "main.js": "/cards-thought/static/js/main.edc417ba.js",
+    "index.html": "/cards-thought/index.html",
+    "main.78d86247.css.map": "/cards-thought/static/css/main.78d86247.css.map",
+    "main.edc417ba.js.map": "/cards-thought/static/js/main.edc417ba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78d86247.css",
+    "static/js/main.edc417ba.js"
+  ]
+}
